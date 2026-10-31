@@ -1123,13 +1123,38 @@ section .btn {
     }
 }
 
-/* MOBILE NAVBAR ONLY */
+/* MOBILE BOOKING BUTTON */
+.mobile-booking {
+    display: none;
+}
+
 @media (max-width: 768px) {
 
-    .navbar {
-        position: relative;
+    /* Hamburger */
+    .menu-toggle {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        width: 44px !important;
+        height: 44px !important;
+        background: transparent !important;
+        border: none !important;
+        cursor: pointer;
+        z-index: 10001;
     }
 
+    .menu-toggle span {
+        display: block !important;
+        width: 27px !important;
+        height: 3px !important;
+        background: #c9a45c !important;
+        border-radius: 3px !important;
+        margin: 0 !important;
+    }
+
+    /* Dropdown menu */
     .nav-links {
         position: absolute !important;
         top: 100% !important;
@@ -1139,14 +1164,14 @@ section .btn {
         display: none !important;
         flex-direction: column !important;
         align-items: center !important;
-        justify-content: center !important;
 
-        text-align: center !important;
-        padding: 20px 15px 15px !important;
         gap: 12px !important;
+        padding: 22px 15px !important;
 
         background: #080808 !important;
-        z-index: 9999 !important;
+        border-top: 1px solid #292929;
+        z-index: 10000 !important;
+        text-align: center !important;
     }
 
     .nav-links.active {
@@ -1156,31 +1181,36 @@ section .btn {
     .nav-links li {
         width: 100% !important;
         text-align: center !important;
+        list-style: none !important;
     }
 
     .nav-links li a {
         display: block !important;
         text-align: center !important;
-        padding: 7px !important;
+        padding: 8px !important;
     }
 
-    /* Existing Book Appointment button */
-    .navbar > .nav-btn {
-        display: none !important;
+    /* Show booking button inside menu */
+    .mobile-booking {
+        display: block !important;
+        margin-top: 8px !important;
     }
 
-    .navbar:has(.nav-links.active) > .nav-btn {
+    .mobile-booking .nav-btn {
         display: inline-flex !important;
-        position: absolute !important;
-        top: calc(100% + 245px) !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        z-index: 10000 !important;
-        white-space: nowrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: auto !important;
+        min-width: 190px !important;
+        padding: 13px 22px !important;
+        background: #c9a45c !important;
+        color: #080808 !important;
+        border-radius: 3px !important;
+        font-weight: 600 !important;
     }
 
-    .menu-toggle {
-        display: flex !important;
-        z-index: 10001 !important;
+    /* Hide desktop button on mobile */
+    .desktop-booking {
+        display: none !important;
     }
 }

@@ -21,8 +21,10 @@
 </div>
 
 <!-- NAVBAR -->
+
 <header class="header" id="header">
     <nav class="navbar container">
+
         <a href="#home" class="logo">ÉLORA<span>.</span></a>
 
         <ul class="nav-links" id="navLinks">
@@ -31,13 +33,29 @@
             <li><a href="service.html">Services</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="contact.html">Contact</a></li>
+
+            <!-- Mobile Appointment Button -->
+            <li class="mobile-booking">
+                <a href="appointment.html" class="nav-btn">
+                    Book Appointment
+                </a>
+            </li>
         </ul>
 
-        <a href="appointment.html" class="nav-btn">Book Appointment</a>
+        <!-- Desktop Appointment Button -->
+        <a href="appointment.html" class="nav-btn desktop-booking">
+            Book Appointment
+        </a>
 
-        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">
-            <span></span><span></span><span></span>
+        <!-- Hamburger -->
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Open navigation"
+                aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
+
     </nav>
 </header>
 
