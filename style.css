@@ -1123,25 +1123,17 @@ section .btn {
     }
 }
 
-/* =====================================
-   ELORA MOBILE NAVBAR FIX
-===================================== */
-
+/* MOBILE NAVBAR ONLY */
 @media (max-width: 768px) {
 
     .navbar {
         position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
     }
 
-    /* Mobile menu */
     .nav-links {
         position: absolute !important;
         top: 100% !important;
         left: 0 !important;
-        right: 0 !important;
         width: 100% !important;
 
         display: none !important;
@@ -1149,55 +1141,46 @@ section .btn {
         align-items: center !important;
         justify-content: center !important;
 
-        gap: 18px !important;
-        padding: 25px 15px !important;
+        text-align: center !important;
+        padding: 20px 15px 15px !important;
+        gap: 12px !important;
 
         background: #080808 !important;
-        border-top: 1px solid #c9a45c;
-        text-align: center !important;
         z-index: 9999 !important;
     }
 
-    /* Menu active */
     .nav-links.active {
         display: flex !important;
     }
 
-    /* Center all links */
     .nav-links li {
         width: 100% !important;
         text-align: center !important;
-        list-style: none !important;
     }
 
     .nav-links li a {
-        display: inline-block !important;
+        display: block !important;
         text-align: center !important;
+        padding: 7px !important;
     }
 
-    /* Book appointment button */
-    .nav-links .nav-btn,
-    .nav-links li .nav-btn {
+    /* Existing Book Appointment button */
+    .navbar > .nav-btn {
+        display: none !important;
+    }
+
+    .navbar:has(.nav-links.active) > .nav-btn {
         display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-
-        width: auto !important;
-        min-width: 170px !important;
-        padding: 12px 25px !important;
-
-        background: #c9a45c !important;
-        color: #080808 !important;
-        border-radius: 3px !important;
-        margin: 5px auto !important;
+        position: absolute !important;
+        top: calc(100% + 245px) !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        z-index: 10000 !important;
+        white-space: nowrap !important;
     }
 
-    /* Hamburger button */
     .menu-toggle {
         display: flex !important;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        z-index: 10000;
+        z-index: 10001 !important;
     }
 }
