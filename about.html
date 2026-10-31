@@ -1,0 +1,623 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover ÉLORA Luxury Unisex Salon. Learn about our story, expert stylists, beauty philosophy and premium salon experience.">
+    <title>About Us | ÉLORA Luxury Unisex Salon</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ABOUT PAGE */
+
+        .about-hero {
+            min-height: 470px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background:
+            linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.83)),
+            url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1800&q=85') center/cover;
+            padding: 130px 0 80px;
+        }
+
+        .about-hero-content {
+            position: relative;
+            width: 100%;
+        }
+
+        .about-hero h1 {
+            font-size: clamp(45px, 7vw, 75px);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .about-hero h1 span { color: var(--gold); }
+
+        .about-hero p:not(.eyebrow) {
+            color: #ddd;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .breadcrumb {
+            margin-top: 25px;
+            font-size: 11px;
+            color: #aaa;
+        }
+
+        .breadcrumb span { color: var(--gold); }
+
+        /* STORY */
+
+        .story-section { background: #101010; }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 75px;
+        }
+
+        .story-image {
+            position: relative;
+            padding: 0 25px 25px 0;
+        }
+
+        .story-image::after {
+            content: "";
+            position: absolute;
+            width: 75%;
+            height: 75%;
+            right: 0;
+            bottom: 0;
+            border: 1px solid var(--gold);
+        }
+
+        .story-image img {
+            position: relative;
+            z-index: 1;
+            height: 480px;
+            object-fit: cover;
+        }
+
+        .story-content h2 {
+            font-size: clamp(35px, 4vw, 48px);
+            margin-bottom: 25px;
+        }
+
+        .story-content h2 span { color: var(--gold); }
+
+        .story-content > p:not(.eyebrow) {
+            color: var(--gray);
+            font-size: 13px;
+            line-height: 2;
+            margin-bottom: 17px;
+        }
+
+        .story-signature {
+            margin-top: 30px;
+            padding-left: 18px;
+            border-left: 2px solid var(--gold);
+        }
+
+        .story-signature h3 {
+            font-size: 21px;
+            color: var(--gold);
+        }
+
+        .story-signature p {
+            font-size: 11px;
+            color: var(--gray);
+            margin-top: 5px;
+        }
+
+        /* VALUES */
+
+        .values-section { background: #0b0b0b; }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+        }
+
+        .value-card {
+            background: #171717;
+            padding: 35px 27px;
+            border: 1px solid #292929;
+            transition: .3s;
+        }
+
+        .value-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-7px);
+        }
+
+        .value-icon {
+            font-size: 31px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .value-card p {
+            font-size: 12px;
+            color: var(--gray);
+            line-height: 1.9;
+        }
+
+        /* MISSION VISION */
+
+        .mission-section { background: #101010; }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .mission-card {
+            min-height: 250px;
+            padding: 40px;
+            border: 1px solid var(--border);
+            background: #171717;
+        }
+
+        .mission-card span {
+            color: var(--gold);
+            font-size: 11px;
+            letter-spacing: 3px;
+        }
+
+        .mission-card h3 {
+            font-size: 32px;
+            margin: 20px 0;
+        }
+
+        .mission-card p {
+            color: var(--gray);
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        /* STATS */
+
+        .about-stats {
+            padding: 75px 0;
+            background: linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.88)),
+            url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1600&q=85') center/cover fixed;
+        }
+
+        .about-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .about-stat h2 {
+            color: var(--gold);
+            font-size: 42px;
+        }
+
+        .about-stat p {
+            color: #ddd;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        /* TEAM */
+
+        .about-team-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+        }
+
+        .about-team-card {
+            background: #171717;
+            text-align: center;
+            padding-bottom: 25px;
+        }
+
+        .about-team-card img {
+            height: 330px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .about-team-card h3 {
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        .about-team-card p {
+            color: var(--gold);
+            font-size: 11px;
+            margin-top: 8px;
+        }
+
+        /* CTA */
+
+        .about-cta {
+            text-align: center;
+            padding: 95px 20px;
+            background: #15120d;
+        }
+
+        .about-cta h2 {
+            font-size: clamp(35px,5vw,55px);
+            margin-bottom: 20px;
+        }
+
+        .about-cta h2 span { color: var(--gold); }
+
+        .about-cta p {
+            color: #bbb;
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        @media(max-width:768px) {
+            .about-hero { min-height: 400px; }
+
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .story-image img { height: 350px; }
+
+            .values-grid,
+            .mission-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats-grid {
+                grid-template-columns: repeat(2,1fr);
+                gap: 35px;
+            }
+
+            .about-team-grid {
+                grid-template-columns: repeat(2,1fr);
+                gap: 15px;
+            }
+
+            .about-team-card img { height: 250px; }
+
+            .mission-card { padding: 28px; }
+        }
+
+        @media(max-width:480px) {
+            .about-hero h1 { font-size: 43px; }
+
+            .about-team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-team-card img { height: 340px; }
+
+            .about-stat h2 { font-size: 34px; }
+
+            .about-cta { padding: 70px 15px; }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+    <nav class="navbar container">
+        <a href="index.html" class="logo">ÉLORA<span>.</span></a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="service.html">Services</a></li>
+           
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <a href="appointment.html" class="nav-btn">Book Appointment</a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="about-hero">
+    <div class="container about-hero-content">
+        <p class="eyebrow">DISCOVER THE ÉLORA EXPERIENCE</p>
+        <h1>About <span>ÉLORA</span></h1>
+        <p>More than a salon. A destination for beauty, confidence and elegance.</p>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / <span>About Us</span>
+        </div>
+    </div>
+</section>
+
+<!-- OUR STORY -->
+<section class="story-section section-padding">
+    <div class="container story-grid">
+
+        <div class="story-image">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=85" alt="ÉLORA premium salon interior">
+        </div>
+
+        <div class="story-content">
+            <p class="eyebrow">OUR STORY</p>
+            <h2>A Passion for Beauty.<br><span>A Promise of Excellence.</span></h2>
+
+            <p>
+                Welcome to ÉLORA, where beauty meets luxury and every
+                visit becomes a memorable experience. We created ÉLORA
+                with one simple belief: everyone deserves to feel
+                confident, refreshed and beautiful.
+            </p>
+
+            <p>
+                Our unisex salon brings together creativity, professional
+                expertise and modern beauty techniques. From stylish
+                haircuts and advanced hair treatments to skincare,
+                makeup and men's grooming, we provide services designed
+                around your individual personality.
+            </p>
+
+            <p>
+                We focus on quality, comfort and personal attention,
+                using carefully selected products and techniques
+                to help every client look and feel their best.
+            </p>
+
+            <div class="story-signature">
+                <h3>ÉLORA Team</h3>
+                <p>CREATING BEAUTY. BUILDING CONFIDENCE.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section section-padding">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="eyebrow">WHAT MAKES US DIFFERENT</p>
+            <h2>The ÉLORA <span>Difference</span></h2>
+            <p>Our commitment to making every salon experience special.</p>
+        </div>
+
+        <div class="values-grid">
+
+            <div class="value-card">
+                <div class="value-icon">✦</div>
+                <h3>Premium Quality</h3>
+                <p>
+                    We believe in delivering exceptional results through
+                    carefully selected beauty products, professional
+                    techniques and attention to every detail.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">♧</div>
+                <h3>Expert Professionals</h3>
+                <p>
+                    Our passionate beauty experts bring creativity,
+                    experience and dedication to every haircut,
+                    treatment and grooming session.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">♡</div>
+                <h3>Personal Care</h3>
+                <p>
+                    Every client is unique. We understand your style,
+                    preferences and requirements before creating
+                    an experience made just for you.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- MISSION & VISION -->
+<section class="mission-section section-padding">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="eyebrow">OUR PURPOSE</p>
+            <h2>Mission & <span>Vision</span></h2>
+        </div>
+
+        <div class="mission-grid">
+
+            <div class="mission-card">
+                <span>01 / OUR MISSION</span>
+                <h3>Making Beauty Accessible.</h3>
+                <p>
+                    Our mission is to provide exceptional salon services
+                    through professional expertise, premium care and
+                    personalized experiences that inspire confidence
+                    and happiness in every client.
+                </p>
+            </div>
+
+            <div class="mission-card">
+                <span>02 / OUR VISION</span>
+                <h3>Redefining Salon Luxury.</h3>
+                <p>
+                    Our vision is to become a trusted beauty destination
+                    known for creativity, quality, innovation and
+                    outstanding customer experiences.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- STATS -->
+<section class="about-stats">
+    <div class="container about-stats-grid">
+
+        <div class="about-stat">
+            <h2>10+</h2>
+            <p>Years of Experience</p>
+        </div>
+
+        <div class="about-stat">
+            <h2>25+</h2>
+            <p>Beauty Professionals</p>
+        </div>
+
+        <div class="about-stat">
+            <h2>5K+</h2>
+            <p>Happy Clients</p>
+        </div>
+
+        <div class="about-stat">
+            <h2>30+</h2>
+            <p>Beauty Services</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- OUR TEAM -->
+<section class="section-padding">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="eyebrow">MEET THE PEOPLE BEHIND ÉLORA</p>
+            <h2>Our Expert <span>Team</span></h2>
+            <p>Creative minds and skilled hands making beauty happen.</p>
+        </div>
+
+        <div class="about-team-grid">
+
+            <div class="about-team-card">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=85" alt="Alex Morgan">
+                <h3>Alex Morgan</h3>
+                <p>Senior Hair Stylist</p>
+            </div>
+
+            <div class="about-team-card">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=85" alt="Olivia Smith">
+                <h3>Olivia Smith</h3>
+                <p>Professional Makeup Artist</p>
+            </div>
+
+            <div class="about-team-card">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=85" alt="Daniel James">
+                <h3>Daniel James</h3>
+                <p>Men's Grooming Expert</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="about-cta">
+    <div class="container">
+        <p class="eyebrow">YOUR BEAUTY JOURNEY STARTS HERE</p>
+        <h2>Ready for Your <span>Transformation?</span></h2>
+        <p>
+            Step into ÉLORA and discover a new level of beauty,
+            grooming and self-care.
+        </p>
+        <a href="index.html#appointment" class="btn btn-gold">
+            Book Your Appointment →
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container footer-grid">
+
+        <div>
+            <a href="index.html" class="logo">ÉLORA<span>.</span></a>
+            <p>
+                Where beauty meets elegance. Experience premium beauty,
+                grooming and self-care.
+            </p>
+        </div>
+
+        <div>
+            <h4>Quick Links</h4>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="index.html#services">Services</a>
+            <a href="index.html#pricing">Pricing</a>
+        </div>
+
+        <div>
+            <h4>Follow Us</h4>
+            <a href="https://instagram.com/" target="_blank">Instagram</a>
+            <a href="https://facebook.com/" target="_blank">Facebook</a>
+            <a href="https://wa.me/919876543210" target="_blank">WhatsApp</a>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © <span id="year"></span> ÉLORA Luxury Unisex Salon. All Rights Reserved.
+    </div>
+</footer>
+
+<a href="https://wa.me/919876543210" class="whatsapp-float"
+   target="_blank" aria-label="Chat on WhatsApp">✆</a>
+
+<script>
+    // MOBILE MENU
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+        });
+    });
+
+    // HEADER SCROLL
+    window.addEventListener("scroll", () => {
+        document.getElementById("header").style.background =
+            window.scrollY > 50
+            ? "rgba(5,5,5,.98)"
+            : "rgba(10,10,10,.94)";
+    });
+
+    // CURRENT YEAR
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>

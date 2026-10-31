@@ -1,0 +1,979 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment | ÉLORA Luxury Salon</title>
+    <meta name="description" content="Book your luxury salon appointment at ÉLORA. Choose your service, stylist and preferred appointment time.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #080808;
+            color: #fff;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        :root {
+            --gold: #c9a45c;
+            --gray: #aaa;
+            --border: #292929;
+        }
+
+        /* Hero */
+
+        .appointment-hero {
+            min-height: 360px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+            background:
+                linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.86)),
+                url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=85&w=1800') center/cover;
+        }
+
+        .gold-label {
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .appointment-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(42px, 7vw, 72px);
+            font-weight: 500;
+            margin: 18px 0;
+        }
+
+        .appointment-hero h1 span {
+            color: var(--gold);
+        }
+
+        .appointment-hero p {
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* Booking Section */
+
+        .appointment-section {
+            padding: 75px 7% 90px;
+        }
+
+        .appointment-heading {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .appointment-heading h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(30px, 5vw, 45px);
+            font-weight: 500;
+            margin: 15px 0;
+        }
+
+        .appointment-heading p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .appointment-wrapper {
+            display: grid;
+            grid-template-columns: .75fr 1.25fr;
+            background: #111;
+            border: 1px solid var(--border);
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        /* Left Panel */
+
+        .appointment-sidebar {
+            padding: 45px 35px;
+            background:
+                linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.88)),
+                url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=85&w=1000') center/cover;
+        }
+
+        .appointment-sidebar h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            font-weight: 500;
+            margin: 15px 0;
+        }
+
+        .appointment-sidebar h2 span {
+            color: var(--gold);
+        }
+
+        .appointment-sidebar > p {
+            color: #ccc;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .sidebar-divider {
+            height: 1px;
+            background: rgba(201,164,92,.4);
+            margin: 30px 0;
+        }
+
+        .sidebar-detail {
+            margin-bottom: 24px;
+        }
+
+        .sidebar-detail h3 {
+            font-size: 13px;
+            color: var(--gold);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .sidebar-detail p {
+            color: #ccc;
+            font-size: 13px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .sidebar-note {
+            padding: 18px;
+            background: rgba(201,164,92,.1);
+            border-left: 2px solid var(--gold);
+            color: #ddd;
+            font-size: 12px;
+            line-height: 1.8;
+            margin-top: 35px;
+        }
+
+        /* Form */
+
+        .appointment-form-area {
+            padding: 45px 40px;
+        }
+
+        .form-section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 500;
+            margin: 0 0 22px;
+            padding-bottom: 13px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .form-section-title span {
+            color: var(--gold);
+            margin-right: 10px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-bottom: 35px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .form-group.full {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            color: #ddd;
+            font-size: 12px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            background: #080808;
+            color: #fff;
+            border: 1px solid #333;
+            outline: none;
+            border-radius: 0;
+            font-family: inherit;
+            font-size: 13px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #777;
+        }
+
+        .form-group select option {
+            background: #111;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .service-selection {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        .service-option {
+            position: relative;
+        }
+
+        .service-option input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .service-option label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            padding: 15px;
+            background: #080808;
+            border: 1px solid #333;
+            cursor: pointer;
+            transition: .3s;
+            font-size: 12px;
+            color: #ddd;
+        }
+
+        .service-option label span {
+            color: var(--gold);
+            white-space: nowrap;
+        }
+
+        .service-option input:checked + label {
+            border-color: var(--gold);
+            background: rgba(201,164,92,.1);
+            color: #fff;
+        }
+
+        .service-option label:hover {
+            border-color: var(--gold);
+        }
+
+        /* Summary */
+
+        .booking-summary {
+            background: #080808;
+            border: 1px solid rgba(201,164,92,.4);
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .booking-summary h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 500;
+            margin: 0 0 15px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin: 10px 0;
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .summary-row strong {
+            color: var(--gold);
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 17px;
+            background: var(--gold);
+            border: none;
+            color: #080808;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .submit-btn:hover {
+            background: #fff;
+        }
+
+        .form-message {
+            display: none;
+            margin-top: 15px;
+            color: var(--gold);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .appointment-note {
+            text-align: center;
+            color: #888;
+            font-size: 11px;
+            margin-top: 15px;
+            line-height: 1.7;
+        }
+
+        /* Why Choose Us */
+
+        .benefits-section {
+            padding: 0 7% 85px;
+        }
+
+        .benefits-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .benefits-heading h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            font-weight: 500;
+            margin: 15px 0;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: #111;
+            border: 1px solid var(--border);
+            transition: .3s;
+        }
+
+        .benefit-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .benefit-card .icon {
+            font-size: 28px;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .benefit-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 500;
+            margin: 8px 0;
+        }
+
+        .benefit-card p {
+            color: var(--gray);
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+
+        @media(max-width: 950px) {
+            .appointment-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .appointment-sidebar {
+                min-height: 330px;
+            }
+        }
+
+        @media(max-width: 600px) {
+            .appointment-hero {
+                min-height: 300px;
+                padding: 60px 18px;
+            }
+
+            .gold-label {
+                font-size: 10px;
+                letter-spacing: 3px;
+            }
+
+            .appointment-section {
+                padding: 50px 15px 55px;
+            }
+
+            .appointment-heading {
+                margin-bottom: 25px;
+            }
+
+            .appointment-sidebar {
+                min-height: auto;
+                padding: 32px 23px;
+            }
+
+            .appointment-sidebar h2 {
+                font-size: 29px;
+            }
+
+            .appointment-form-area {
+                padding: 30px 18px;
+            }
+
+            .form-section-title {
+                font-size: 21px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .form-group.full {
+                grid-column: span 1;
+            }
+
+            .service-selection {
+                grid-template-columns: 1fr;
+                gap: 9px;
+            }
+
+            .benefits-section {
+                padding: 0 15px 55px;
+            }
+
+            .benefits-heading h2 {
+                font-size: 30px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar container">
+
+            <a href="index.html" class="logo">ÉLORA<span>.</span></a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="appointment.html" class="nav-btn active">Book Now</a></li>
+            </ul>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="appointment-hero">
+        <div>
+            <span class="gold-label">Your Time • Your Beauty</span>
+            <h1>Book An <span>Appointment</span></h1>
+            <p>
+                Take the first step towards your perfect look.
+                Reserve your personalized beauty experience with ÉLORA.
+            </p>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section class="appointment-section">
+
+        <div class="appointment-heading">
+            <span class="gold-label">Reserve Your Experience</span>
+            <h2>Let's Make You Feel Beautiful</h2>
+            <p>Complete the form below to request your salon appointment.</p>
+        </div>
+
+        <div class="appointment-wrapper">
+
+            <!-- Sidebar -->
+            <div class="appointment-sidebar">
+
+                <span class="gold-label">Welcome To ÉLORA</span>
+
+                <h2>Experience The Art Of <span>Luxury</span></h2>
+
+                <p>
+                    Enjoy premium salon treatments, personalized attention
+                    and professional beauty services in a relaxing atmosphere.
+                </p>
+
+                <div class="sidebar-divider"></div>
+
+                <div class="sidebar-detail">
+                    <h3>OPENING HOURS</h3>
+                    <p>Monday – Sunday<br>10:00 AM – 9:00 PM</p>
+                </div>
+
+                <div class="sidebar-detail">
+                    <h3>CONTACT NUMBER</h3>
+                    <p>+91 98765 43210</p>
+                </div>
+
+                <div class="sidebar-detail">
+                    <h3>OUR LOCATION</h3>
+                    <p>Your City, India</p>
+                </div>
+
+                <div class="sidebar-note">
+                    ✦ Please arrive 10 minutes before your scheduled appointment.
+                    Your booking will be confirmed by our salon team.
+                </div>
+
+            </div>
+
+            <!-- Form -->
+            <div class="appointment-form-area">
+
+                <form id="appointmentForm">
+
+                    <!-- Step 1 -->
+                    <h3 class="form-section-title">
+                        <span>01.</span> Select Your Service
+                    </h3>
+
+                    <div class="service-selection">
+
+                        <div class="service-option">
+                            <input type="radio" id="haircut" name="service"
+                                   value="Haircut & Styling" data-price="499" required>
+                            <label for="haircut">
+                                Haircut & Styling <span>₹499+</span>
+                            </label>
+                        </div>
+
+                        <div class="service-option">
+                            <input type="radio" id="haircolor" name="service"
+                                   value="Hair Color" data-price="1499">
+                            <label for="haircolor">
+                                Hair Color <span>₹1,499+</span>
+                            </label>
+                        </div>
+
+                        <div class="service-option">
+                            <input type="radio" id="hairspa" name="service"
+                                   value="Hair Spa" data-price="999">
+                            <label for="hairspa">
+                                Hair Spa <span>₹999+</span>
+                            </label>
+                        </div>
+
+                        <div class="service-option">
+                            <input type="radio" id="facial" name="service"
+                                   value="Luxury Facial" data-price="1299">
+                            <label for="facial">
+                                Luxury Facial <span>₹1,299+</span>
+                            </label>
+                        </div>
+
+                        <div class="service-option">
+                            <input type="radio" id="skincare" name="service"
+                                   value="Skin Treatment" data-price="1499">
+                            <label for="skincare">
+                                Skin Treatment <span>₹1,499+</span>
+                            </label>
+                        </div>
+
+                        <div class="service-option">
+                            <input type="radio" id="bodyspa" name="service"
+                                   value="Body Spa" data-price="1999">
+                            <label for="bodyspa">
+                                Body Spa <span>₹1,999+</span>
+                            </label>
+                        </div>
+
+                        <div class="service-option">
+                            <input type="radio" id="makeup" name="service"
+                                   value="Professional Makeup" data-price="2499">
+                            <label for="makeup">
+                                Professional Makeup <span>₹2,499+</span>
+                            </label>
+                        </div>
+
+                        <div class="service-option">
+                            <input type="radio" id="grooming" name="service"
+                                   value="Men's Grooming" data-price="399">
+                            <label for="grooming">
+                                Men's Grooming <span>₹399+</span>
+                            </label>
+                        </div>
+
+                        <div class="service-option">
+                            <input type="radio" id="nails" name="service"
+                                   value="Nail Art & Care" data-price="699">
+                            <label for="nails">
+                                Nail Art & Care <span>₹699+</span>
+                            </label>
+                        </div>
+
+                    </div>
+
+                    <!-- Step 2 -->
+                    <h3 class="form-section-title">
+                        <span>02.</span> Personal Information
+                    </h3>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name"
+                                   placeholder="Your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone"
+                                   placeholder="10-digit mobile number"
+                                   pattern="[0-9]{10}" maxlength="10" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email"
+                                   placeholder="Your email address">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender">
+                                <option value="">Select Gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <!-- Step 3 -->
+                    <h3 class="form-section-title">
+                        <span>03.</span> Date & Time
+                    </h3>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="date">Appointment Date *</label>
+                            <input type="date" id="date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="time">Preferred Time *</label>
+                            <select id="time" required>
+                                <option value="">Choose Time</option>
+                                <option>10:00 AM</option>
+                                <option>11:00 AM</option>
+                                <option>12:00 PM</option>
+                                <option>01:00 PM</option>
+                                <option>02:00 PM</option>
+                                <option>03:00 PM</option>
+                                <option>04:00 PM</option>
+                                <option>05:00 PM</option>
+                                <option>06:00 PM</option>
+                                <option>07:00 PM</option>
+                                <option>08:00 PM</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full">
+                            <label for="stylist">Preferred Stylist</label>
+                            <select id="stylist">
+                                <option value="No Preference">No Preference</option>
+                                <option>Senior Stylist</option>
+                                <option>Female Stylist</option>
+                                <option>Male Stylist</option>
+                                <option>Any Available Stylist</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full">
+                            <label for="message">Special Requests</label>
+                            <textarea id="message"
+                                placeholder="Tell us if you have any special requirements..."></textarea>
+                        </div>
+
+                    </div>
+
+                    <!-- Booking Summary -->
+                    <div class="booking-summary">
+
+                        <h3>Booking Summary</h3>
+
+                        <div class="summary-row">
+                            <span>Selected Service</span>
+                            <strong id="summaryService">Not Selected</strong>
+                        </div>
+
+                        <div class="summary-row">
+                            <span>Starting Price</span>
+                            <strong id="summaryPrice">₹0</strong>
+                        </div>
+
+                        <div class="summary-row">
+                            <span>Booking Status</span>
+                            <strong>Confirmation Pending</strong>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        CONFIRM BOOKING ON WHATSAPP →
+                    </button>
+
+                    <div class="form-message" id="formMessage" role="status">
+                        Opening WhatsApp with your appointment details...
+                    </div>
+
+                    <p class="appointment-note">
+                        By submitting this form, you agree to be contacted by ÉLORA
+                        regarding your appointment request.
+                    </p>
+
+                </form>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits-section">
+
+        <div class="benefits-heading">
+            <span class="gold-label">The ÉLORA Difference</span>
+            <h2>Why Book With Us?</h2>
+        </div>
+
+        <div class="benefits-grid">
+
+            <div class="benefit-card">
+                <div class="icon">✦</div>
+                <h3>Expert Professionals</h3>
+                <p>Our experienced beauty experts focus on your individual style and needs.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="icon">◇</div>
+                <h3>Premium Experience</h3>
+                <p>Enjoy luxury treatments with quality products and personalized care.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="icon">♡</div>
+                <h3>Personalized Care</h3>
+                <p>Every appointment is designed around your preferences and comfort.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div>
+                    <a href="index.html" class="logo">ÉLORA<span>.</span></a>
+                    <p>Where beauty meets elegance. Experience premium care and luxury at ÉLORA.</p>
+                </div>
+
+                <div>
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="about.html">About Us</a></p>
+                    <p><a href="services.html">Services</a></p>
+                    <p><a href="gallery.html">Gallery</a></p>
+                </div>
+
+                <div>
+                    <h3>Our Services</h3>
+                    <p>Hair Styling</p>
+                    <p>Skin & Facial</p>
+                    <p>Makeup</p>
+                    <p>Body Spa</p>
+                </div>
+
+                <div>
+                    <h3>Contact Us</h3>
+                    <p>+91 98765 43210</p>
+                    <p>hello@elorasalon.com</p>
+                    <p>Your City, India</p>
+                </div>
+
+            </div>
+
+            <div class="copyright">
+                © <span id="year"></span> ÉLORA Luxury Salon. All Rights Reserved.
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+            });
+
+            navLinks.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", () => {
+                    navLinks.classList.remove("active");
+                });
+            });
+        }
+
+        // Set minimum date to today (local date)
+        const dateInput = document.getElementById("date");
+
+        function getLocalDateString(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, "0");
+            const day = String(date.getDate()).padStart(2, "0");
+            return `${year}-${month}-${day}`;
+        }
+
+        const today = new Date();
+        dateInput.min = getLocalDateString(today);
+
+        // Update Booking Summary
+        const serviceInputs = document.querySelectorAll('input[name="service"]');
+
+        serviceInputs.forEach(input => {
+            input.addEventListener("change", function() {
+                document.getElementById("summaryService").textContent = this.value;
+
+                const price = Number(this.dataset.price);
+
+                document.getElementById("summaryPrice").textContent =
+                    "₹" + price.toLocaleString("en-IN") + "+";
+            });
+        });
+
+        // Appointment Form
+        const appointmentForm = document.getElementById("appointmentForm");
+
+        appointmentForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const selectedService = document.querySelector('input[name="service"]:checked');
+
+            if (!selectedService) {
+                alert("Please select a service.");
+                return;
+            }
+
+            const name = document.getElementById("name").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const gender = document.getElementById("gender").value;
+            const date = dateInput.value;
+            const time = document.getElementById("time").value;
+            const stylist = document.getElementById("stylist").value;
+            const message = document.getElementById("message").value.trim();
+
+            if (!/^[0-9]{10}$/.test(phone)) {
+                alert("Please enter a valid 10-digit mobile number.");
+                return;
+            }
+
+            const selectedDate = new Date(date + "T00:00:00");
+            const todayDate = new Date();
+            todayDate.setHours(0, 0, 0, 0);
+
+            if (selectedDate < todayDate) {
+                alert("Please select today or a future date.");
+                return;
+            }
+
+            const price = Number(selectedService.dataset.price);
+
+            // Replace with your salon's WhatsApp number.
+            const salonWhatsApp = "919876543210";
+
+            const formattedDate = selectedDate.toLocaleDateString("en-IN", {
+                day: "2-digit",
+                month: "long",
+                year: "numeric"
+            });
+
+            const bookingID = "ELORA" + Date.now().toString().slice(-8);
+
+            const whatsappMessage =
+                `Hello ÉLORA Luxury Salon!\n\n` +
+                `I want to book an appointment.\n\n` +
+                `Booking ID: ${bookingID}\n` +
+                `Name: ${name}\n` +
+                `Phone: ${phone}\n` +
+                `Email: ${email || "Not provided"}\n` +
+                `Gender: ${gender || "Not provided"}\n` +
+                `Service: ${selectedService.value}\n` +
+                `Starting Price: ₹${price}+\n` +
+                `Stylist: ${stylist}\n` +
+                `Date: ${formattedDate}\n` +
+                `Time: ${time}\n` +
+                `Special Request: ${message || "None"}\n\n` +
+                `Please confirm my appointment. Thank you!`;
+
+            const whatsappURL =
+                `https://wa.me/${salonWhatsApp}?text=${encodeURIComponent(whatsappMessage)}`;
+
+            document.getElementById("formMessage").style.display = "block";
+
+            window.open(whatsappURL, "_blank");
+        });
+
+        // Footer Year
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
