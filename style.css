@@ -1214,3 +1214,43 @@ section .btn {
         display: none !important;
     }
 }
+
+/* =================================
+   MOBILE HAMBURGER MENU FIX
+================================= */
+
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        width: 44px !important;
+        height: 44px !important;
+        padding: 8px !important;
+
+        gap: 6px !important;
+        background: transparent !important;
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        display: block !important;
+
+        width: 27px !important;
+        height: 3px !important;
+        min-height: 3px !important;
+
+        background: #c9a45c !important;
+        border-radius: 2px !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+        transform: none !important;
+    }
+}
