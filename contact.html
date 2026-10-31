@@ -469,24 +469,25 @@
 <body>
 
     <!-- Header -->
-    <header class="header" id="header">
-        <nav class="navbar container">
-            <a href="index.html" class="logo">ÉLORA<span>.</span></a>
+  <header class="header" id="header">
+    <nav class="navbar container">
+        <a href="#home" class="logo">ÉLORA<span>.</span></a>
 
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="service.html">Services</a></li>
-             
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
-                <li><a href="appointment.html" class="nav-btn">Book Now</a></li>
-            </ul>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
 
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
-        </nav>
-    </header>
+        <a href="appointment.html" class="nav-btn">Book Appointment</a>
 
+        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+</header>
     <!-- Hero -->
     <section class="contact-hero">
         <div>
@@ -682,48 +683,30 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-
-            <div class="footer-grid">
-
-                <div>
-                    <a href="index.html" class="logo">ÉLORA<span>.</span></a>
-                    <p>Where beauty meets elegance. Experience premium care and luxury at ÉLORA.</p>
-                </div>
-
-                <div>
-                    <h3>Quick Links</h3>
-                    <p><a href="index.html">Home</a></p>
-                    <p><a href="about.html">About Us</a></p>
-                    <p><a href="services.html">Services</a></p>
-                    <p><a href="gallery.html">Gallery</a></p>
-                </div>
-
-                <div>
-                    <h3>Our Services</h3>
-                    <p>Hair Styling</p>
-                    <p>Skin & Facial</p>
-                    <p>Makeup</p>
-                    <p>Body Spa</p>
-                </div>
-
-                <div>
-                    <h3>Contact Us</h3>
-                    <p>+91 98765 43210</p>
-                    <p>hello@elorasalon.com</p>
-                    <p>Your City, India</p>
-                </div>
-
-            </div>
-
-            <div class="copyright">
-                © <span id="year"></span> ÉLORA Luxury Salon. All Rights Reserved.
-            </div>
-
+   <footer class="footer">
+    <div class="container footer-grid">
+        <div>
+            <a href="#home" class="logo">ÉLORA<span>.</span></a>
+            <p>Where beauty meets elegance. Experience premium beauty, grooming and self-care.</p>
         </div>
-    </footer>
-
+        <div>
+            <h4>Quick Links</h4>
+            <a href="about.html">About Us</a>
+            <a href="service.html">Services</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div>
+            <h4>Follow Us</h4>
+            <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://facebook.com/" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://wa.me/919876543210" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+    </div>
+    <div class="copyright">
+        © <span id="year"></span> ÉLORA Luxury Unisex Salon. All Rights Reserved.
+    </div>
+</footer>
     <script>
         // Mobile Navigation
         const menuToggle = document.getElementById("menuToggle");
